@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Layers, Music, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import beeFanImg from '../../assets/projects/beefan.png';
+import beeExperiencesImg from '../../assets/projects/beexp.png';
 
 const projects = [
     {
@@ -9,18 +11,18 @@ const projects = [
         key: "beeFan",
         description: "A comprehensive fan engagement platform connecting artists with their audience through exclusive content and interactive experiences.",
         tags: ["React", "TypeScript", "Music Tech"],
-        link: "https://gabrielsmenezes.github.io/bee-fan/",
+        link: "https://beefan.beetechgroup.net",
         icon: Music,
-        image: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2070&auto=format&fit=crop" // Music/Concert vibe
+        image: beeFanImg
     },
     {
         title: "Bee Experiences",
         key: "beeExperiences",
         description: "Immersive digital experiences platform designed to create memorable interactions for events and brands.",
         tags: ["Interactive", "Events", "Web App"],
-        link: "https://gabrielsmenezes.github.io/bee-experiences/",
+        link: "https://beexp.beetechgroup.net",
         icon: Layers,
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" // Cyber/Tech vibe
+        image: beeExperiencesImg // Cyber/Tech vibe
     }
 ];
 
