@@ -41,8 +41,8 @@ export function Contact() {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">{t('contact.email')}</h4>
-                                    <a href="mailto:contact@beetechgroup.net" className="text-gray-400 hover:text-bee-yellow transition-colors">
-                                        contact@beetechgroup.net
+                                    <a href="mailto:beetechgroup.net@gmail.com" className="text-gray-400 hover:text-bee-yellow transition-colors">
+                                        beetechgroup.net@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -54,8 +54,7 @@ export function Contact() {
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">{t('contact.visit')}</h4>
                                     <p className="text-gray-400">
-                                        Innovation Hub<br />
-                                        Tech Valley, CA 94043
+                                        Campo Grande, MS
                                     </p>
                                 </div>
                             </div>
@@ -67,7 +66,7 @@ export function Contact() {
                                 <div>
                                     <h4 className="text-white font-semibold mb-1">{t('contact.call')}</h4>
                                     <p className="text-gray-400">
-                                        +1 (555) 123-4567
+                                        +55 (67) 99145-3488
                                     </p>
                                 </div>
                             </div>
