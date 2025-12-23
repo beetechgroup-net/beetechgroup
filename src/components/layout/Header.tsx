@@ -3,15 +3,18 @@ import { Logo } from '../ui/Logo';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 
 const navItems = [
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { key: 'services', href: '#services' },
+    { key: 'portfolio', href: '#portfolio' },
+    { key: 'about', href: '#about' },
+    { key: 'contact', href: '#contact' },
 ];
 
 export function Header() {
+    const { t } = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -37,18 +40,21 @@ export function Header() {
                 <nav className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => (
                         <a
-                            key={item.name}
+                            key={item.key}
                             href={item.href}
                             className="text-sm font-medium text-gray-300 hover:text-bee-yellow transition-colors"
                         >
-                            {item.name}
+                            {t(`header.${item.key}`)}
                         </a>
                     ))}
+                    <div className="mr-2">
+                        <LanguageSwitcher />
+                    </div>
                     <a
                         href="#contact"
                         className="px-5 py-2.5 bg-bee-yellow text-bee-black font-semibold text-sm rounded-full hover:bg-yellow-400 transition-colors"
                     >
-                        Start Project
+                        {t('header.startProject')}
                     </a>
                 </nav>
 
@@ -73,20 +79,23 @@ export function Header() {
                         <nav className="flex flex-col p-6 gap-4">
                             {navItems.map((item) => (
                                 <a
-                                    key={item.name}
+                                    key={item.key}
                                     href={item.href}
                                     className="text-lg font-medium text-gray-300 hover:text-bee-yellow"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    {item.name}
+                                    {t(`header.${item.key}`)}
                                 </a>
                             ))}
+                            <div className="flex justify-center py-2">
+                                <LanguageSwitcher />
+                            </div>
                             <a
                                 href="#contact"
                                 className="mt-2 px-5 py-3 bg-bee-yellow text-bee-black font-semibold text-center rounded-lg"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                Start Project
+                                {t('header.startProject')}
                             </a>
                         </nav>
                     </motion.div>

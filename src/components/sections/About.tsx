@@ -1,17 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-const features = [
-    "Enterprise-Grade Security",
-    "Scalable Cloud Architecture",
-    "User-Centric Design",
-    "Agile Development Methodology",
-    "24/7 Support & Maintenance",
-    "Custom API Integration"
+const featuresKeys = [
+    "security",
+    "cloud",
+    "design",
+    "agile",
+    "support",
+    "api"
 ];
 
 export function About() {
+    const { t } = useTranslation();
     return (
         <section id="about" className="py-20 md:py-32 bg-bee-dark relative overflow-hidden">
             {/* Background Pattern */}
@@ -27,23 +29,23 @@ export function About() {
                         transition={{ duration: 0.6 }}
                     >
                         <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-bee-yellow uppercase bg-bee-yellow/10 rounded-full">
-                            Who We Are
+                            {t('about.badge')}
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-                            Architects of the <span className="text-bee-yellow">Digital Realm</span>
+                            {t('about.title')} <span className="text-bee-yellow">{t('about.highlight')}</span>
                         </h2>
                         <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                            At Bee Tech Group, we don't just write code; we build ecosystems. Our team of expert engineers and designers is dedicated to pushing the boundaries of what's possible on the web.
+                            {t('about.p1')}
                         </p>
                         <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                            Founded with a vision to streamline complex business processes through technology, we have grown into a full-service agency capable of tackling projects of any scale.
+                            {t('about.p2')}
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {features.map((feature, idx) => (
-                                <div key={idx} className="flex items-center gap-3">
+                            {featuresKeys.map((key) => (
+                                <div key={key} className="flex items-center gap-3">
                                     <CheckCircle2 className="text-bee-yellow shrink-0" size={20} />
-                                    <span className="text-gray-300 text-sm font-medium">{feature}</span>
+                                    <span className="text-gray-300 text-sm font-medium">{t(`about.features.${key}`)}</span>
                                 </div>
                             ))}
                         </div>
@@ -62,7 +64,7 @@ export function About() {
                                 <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]" />
                                 <div className="text-center p-8">
                                     <div className="text-6xl font-bold text-white mb-2">5+</div>
-                                    <div className="text-gray-400">Years of Experience</div>
+                                    <div className="text-gray-400">{t('about.experience')}</div>
                                 </div>
                             </div>
                         </div>

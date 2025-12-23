@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Layers, Music } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const projects = [
     {
         title: "Bee Fan",
+        key: "beeFan",
         description: "A comprehensive fan engagement platform connecting artists with their audience through exclusive content and interactive experiences.",
         tags: ["React", "TypeScript", "Music Tech"],
         link: "https://gabrielsmenezes.github.io/bee-fan/", // Inferred URL logic
@@ -13,7 +15,7 @@ const projects = [
     },
     {
         title: "Bee Experiences",
-        description: "Immersive digital experiences platform designed to create memorable interactions for events and brands.",
+        key: "beeExperiences",
         tags: ["Interactive", "Events", "Web App"],
         link: "https://gabrielsmenezes.github.io/bee-experiences/", // Inferred URL logic
         icon: Layers,
@@ -22,21 +24,22 @@ const projects = [
 ];
 
 export function Portfolio() {
+    const { t } = useTranslation();
     return (
         <section id="portfolio" className="py-20 md:py-32 bg-bee-dark">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <div className="max-w-2xl">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-                            Featured <span className="text-bee-yellow">Work</span>
+                            {t('portfolio.title')} <span className="text-bee-yellow">{t('portfolio.highlight')}</span>
                         </h2>
                         <p className="text-gray-400 text-lg">
-                            Explore our portfolio of successful projects where we've helped businesses and creators achieve their digital goals.
+                            {t('portfolio.description')}
                         </p>
                     </div>
 
                     <a href="https://github.com/gabrielsmenezes" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-bee-yellow hover:text-white transition-colors font-medium">
-                        View GitHub <Github size={20} />
+                        {t('portfolio.viewGithub')} <Github size={20} />
                     </a>
                 </div>
 
@@ -71,7 +74,7 @@ export function Portfolio() {
                                 </div>
 
                                 <p className="text-gray-400 mb-6 line-clamp-2">
-                                    {project.description}
+                                    {t(`portfolio.projects.${project.key}.description`)}
                                 </p>
 
                                 <div className="flex flex-wrap gap-2">

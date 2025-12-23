@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Contact() {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -26,10 +28,10 @@ export function Contact() {
 
                     <div>
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-                            Let's Build Something <span className="text-bee-yellow">Amazing</span>
+                            {t('contact.title')} <span className="text-bee-yellow">{t('contact.highlight')}</span>
                         </h2>
                         <p className="text-gray-400 text-lg mb-12">
-                            Have a project in mind? We'd love to hear about it. Send us a message and let's start the conversation.
+                            {t('contact.description')}
                         </p>
 
                         <div className="space-y-8">
@@ -38,7 +40,7 @@ export function Contact() {
                                     <Mail className="text-bee-yellow" size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold mb-1">Email Us</h4>
+                                    <h4 className="text-white font-semibold mb-1">{t('contact.email')}</h4>
                                     <a href="mailto:contact@beetechgroup.net" className="text-gray-400 hover:text-bee-yellow transition-colors">
                                         contact@beetechgroup.net
                                     </a>
@@ -50,7 +52,7 @@ export function Contact() {
                                     <MapPin className="text-bee-yellow" size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold mb-1">Visit Us</h4>
+                                    <h4 className="text-white font-semibold mb-1">{t('contact.visit')}</h4>
                                     <p className="text-gray-400">
                                         Innovation Hub<br />
                                         Tech Valley, CA 94043
@@ -63,7 +65,7 @@ export function Contact() {
                                     <Phone className="text-bee-yellow" size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-semibold mb-1">Call Us</h4>
+                                    <h4 className="text-white font-semibold mb-1">{t('contact.call')}</h4>
                                     <p className="text-gray-400">
                                         +1 (555) 123-4567
                                     </p>
@@ -80,39 +82,39 @@ export function Contact() {
                     >
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-medium text-gray-300">Your Name</label>
+                                <label htmlFor="name" className="text-sm font-medium text-gray-300">{t('contact.form.name')}</label>
                                 <input
                                     type="text"
                                     id="name"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                     className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:border-bee-yellow focus:ring-1 focus:ring-bee-yellow outline-none text-white transition-all"
-                                    placeholder="John Doe"
+                                    placeholder={t('contact.form.placeholders.name')}
                                     required
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="email" className="text-sm font-medium text-gray-300">Email Address</label>
+                                <label htmlFor="email" className="text-sm font-medium text-gray-300">{t('contact.form.email')}</label>
                                 <input
                                     type="email"
                                     id="email"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:border-bee-yellow focus:ring-1 focus:ring-bee-yellow outline-none text-white transition-all"
-                                    placeholder="john@example.com"
+                                    placeholder={t('contact.form.placeholders.email')}
                                     required
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
+                                <label htmlFor="message" className="text-sm font-medium text-gray-300">{t('contact.form.message')}</label>
                                 <textarea
                                     id="message"
                                     value={formData.message}
                                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-lg focus:border-bee-yellow focus:ring-1 focus:ring-bee-yellow outline-none text-white transition-all min-h-[150px] resize-y"
-                                    placeholder="Tell us about your project..."
+                                    placeholder={t('contact.form.placeholders.message')}
                                     required
                                 />
                             </div>
@@ -121,7 +123,7 @@ export function Contact() {
                                 type="submit"
                                 className="w-full py-4 bg-bee-yellow text-bee-black font-bold rounded-lg hover:bg-yellow-400 transition-all flex items-center justify-center gap-2 group"
                             >
-                                Send Message
+                                {t('contact.form.submit')}
                                 <Send size={18} className="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </form>

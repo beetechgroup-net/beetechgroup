@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Cpu, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Hero() {
+    const { t } = useTranslation();
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background Elements */}
@@ -21,16 +23,16 @@ export function Hero() {
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-bee-yellow text-sm font-medium mb-6">
                             <span className="w-2 h-2 rounded-full bg-bee-yellow animate-pulse" />
-                            Innovating the Future
+                            {t('hero.badge')}
                         </div>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8">
-                            <span className="block text-white">Digital Excellence</span>
-                            <span className="text-gradient">Redefined</span>
+                            <span className="block text-white">{t('hero.titleLine1')}</span>
+                            <span className="text-gradient">{t('hero.titleLine2')}</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                            Bee Tech Group is a premier software development agency crafting high-performance digital experiences. We turn complex challenges into elegant solutions.
+                            {t('hero.description')}
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -38,14 +40,14 @@ export function Hero() {
                                 href="#contact"
                                 className="group w-full sm:w-auto px-8 py-4 bg-bee-yellow text-bee-black font-bold rounded-lg hover:bg-yellow-400 transition-all flex items-center justify-center gap-2"
                             >
-                                Start Your Project
+                                {t('hero.startProject')}
                                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                             </a>
                             <a
                                 href="#portfolio"
                                 className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white border border-white/10 font-bold rounded-lg hover:bg-white/10 transition-all"
                             >
-                                View Our Work
+                                {t('hero.viewWork')}
                             </a>
                         </div>
                     </motion.div>
@@ -54,10 +56,10 @@ export function Hero() {
                 {/* Floating Icons Grid */}
                 <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-50 max-w-4xl mx-auto">
                     {[
-                        { icon: Code, label: "Clean Code" },
-                        { icon: Globe, label: "Global Scale" },
-                        { icon: Cpu, label: "High Performance" },
-                        { icon: Code, label: "Modern Stack" } // Duplicate icon for balance or use Database/Cloud
+                        { icon: Code, label: t('hero.features.cleanCode') },
+                        { icon: Globe, label: t('hero.features.globalScale') },
+                        { icon: Cpu, label: t('hero.features.highPerformance') },
+                        { icon: Code, label: t('hero.features.modernStack') } // Duplicate icon for balance or use Database/Cloud
                     ].map((item, i) => (
                         <motion.div
                             key={i}
